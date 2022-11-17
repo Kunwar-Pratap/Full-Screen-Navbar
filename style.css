@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.navbar,
+.nav-menu,
+.burger,
+.background {
+    position: fixed;
+}
+
+.background {
+    background-image: url(/img/hero.jpg);
+    width: 110%;
+    height: 110%;
+    top: -7%;
+    left: -7%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.burger {
+    display: grid;
+    background-image: url(/img/hamburger-menu.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5;
+    place-items: center;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+
+}
+
+.navbar {
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #19191c;
+    color: #ffffff;
+    padding-left: 20px;
+    padding-right: 70px;
+
+}
+
+.burger {
+    filter: invert(1);
+}
+
+.navbar-logo {
+    height: 42px;
+}
+
+.search-dock {
+    height: 36px;
+    width: 210px;
+    border: none;
+    border-radius: 7px;
+    background: #373b41 url(/img/search.svg);
+    color: #ffffff;
+    background-repeat: no-repeat;
+    background-position: 4px;
+    font-size: 17px;
+    padding-left: 40px;
+    outline: none;
+}
+
+.search-dock::placeholder {
+    color: #b1aeae;
+}
+
+.nav-menu {
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    gap: 24px;
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+}
+
+.nav-menu a {
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: #00FFD1;
+    letter-spacing: 2px;
+}
+
+body.open-menu .background {
+    filter: blur(18px);
+}
+
+body.open-menu .burger {
+    background-image: url(/img/close.svg);
+    filter: invert(1);
+    height: 38px;
+    top: 18px;
+}
+
+body.open-menu .nav-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+body.open-menu .nav-menu>a {
+    animation: popUp 0.5s both;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+        transform: translate(400px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
